@@ -1,0 +1,44 @@
+.container {
+  color: beige;
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 1rem;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+.section {
+  padding: 5rem;
+  height: 59%;
+}
+.inputFiled {
+  margin: 2px;
+}
+input[type="text"],
+[type="number"] {
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 0.2rem;
+  height: 50%;
+  padding: 10px;
+}
+input[type="text"]:focus,
+[type="number"]:focus {
+  background-color: rgb(171, 177, 177);
+  color: rgb(78, 45, 5);
+  font-size: medium;
+}
+.submit {
+  background-color: brown;
+  border: 1px solid brown;
+  border-radius: 0.2rem;
+  height: 2rem;
+  width: 5rem;
+  color: aliceblue;
+  margin: 2px;
+}
+.error-text {
+  color: rgb(245, 49, 49);
+}

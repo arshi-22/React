@@ -1,0 +1,29 @@
+/* .container {
+  text-align: center;
+  margin: 5rem;
+} */
+.heading {
+  font-size: larger;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 500;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.button {
+  background-color: cadetblue;
+  border: 1px solid cadetblue;
+  color: rgb(196, 74, 17);
+  border-radius: 1rem;
+  border-width: 1rem;
+  margin: 0.5rem;
+}
+.useEffect{
+  padding: 2rem;
+}
+.useRef {
+  padding: 2rem;
+}
