@@ -1,0 +1,10 @@
+.header {
+  color: brown;
+}
+.wishes {
+  color: darkolivegreen;
+}
+
+.listItems {
+  list-style-position: inside;
+}
