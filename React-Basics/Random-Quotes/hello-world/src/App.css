@@ -1,0 +1,46 @@
+:root {
+  --random-color: teal;
+}
+
+body {
+  background-color: var(--random-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  color: var(--random-color);
+}
+#quote-box {
+  padding: 1.5rem;
+  border: 1px solid transparent;
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 50vw;
+  min-height: 20vh;
+}
+#text {
+  font-weight: bold;
+  font-size: 20px;
+}
+#text::before {
+  content: '"';
+  font-size: 35px;
+}
+#author {
+  text-align: end;
+  font-weight: bold;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+#tweet-quote,
+#new-quote {
+  background-color: var(--random-color);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 8px;
+}
