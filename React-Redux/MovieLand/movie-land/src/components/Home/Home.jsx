@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import "./Home.scss";
+import banner from "../../common/assests/banner.png";
 import MovieListing from "../MovieListing/MovieListing";
 import movieApi from "../../common/apis/moviesApis";
 import { API_URL, API_KEY, API_KEY_VALUE } from "../../common/apis/MovieApiKey";
@@ -13,9 +15,10 @@ const Home = () => {
     const response = await movieApi
       .get(`${API_URL}?${API_KEY}${API_KEY_VALUE}&s=${searchValue}`)
       .catch((error) => {
-        console.error("An error occured try after sometime \n error", error);
+        document.write("An error occured try after sometime");
+        document.close();
       });
-    dispatch(addMovies(response.data));
+    dispatch(addMovies(response?.data));
   };
 
   useEffect(() => {
@@ -24,8 +27,17 @@ const Home = () => {
 
   return (
     <div className="banner-img">
+      <img src={banner} alt="banner-image" />
+      <div>
+        <span>
+          Unlimited movies
+          <br /> Search any movies...
+        </span>
+      </div>
+
       <div className="searchBar">
-        <input type="text" placeholder="Search movie here" />
+        <input type="text" placeholder="Movie name" />
+        <button>Search</button>
       </div>
       <MovieListing />
     </div>

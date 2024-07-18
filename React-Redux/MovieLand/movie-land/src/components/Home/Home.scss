@@ -1,0 +1,45 @@
+@import "../../common/color.scss";
+.banner-img {
+  img {
+    opacity: 0.6;
+    width: 100%;
+  }
+  img:hover {
+    opacity: 0.8;
+  }
+  span {
+    color: $font-primary;
+    font-weight: 400;
+    font-size: xx-large;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  input {
+    background-color: transparent;
+    border: 1px solid #b1a9a9;
+    width: auto;
+    border-radius: 3px;
+    height: 47px;
+  }
+  ::placeholder {
+    color: $font-primary;
+  }
+  button {
+    border: 1px solid #b1a9a9;
+    border-radius: 5px;
+    width: auto;
+    background-color: cornflowerblue;
+    color: $font-primary;
+  }
+}

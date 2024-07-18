@@ -1,0 +1,36 @@
+@import "../../common/color.scss";
+
+.card-item {
+  //   background-color: $secondary-color;
+  cursor: pointer;
+}
+.card-inner {
+  // box-shadow: 0 4px 8px 0 rgb(113 107 107 / 23%);
+  border-radius: 1rem;
+  transition: 0.25s ease;
+}
+.card-inner:focus,
+.card-inner:hover {
+  // box-shadow: 0 6px 10px 0 rgb(113 107 107 / 23%);
+  border-radius: 1rem;
+  transform: translate(-20px, -10px);
+  transition: all 0.3s ease 0s;
+}
+.card-top {
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+  }
+}
+.card-info {
+  padding: 5px;
+  p,
+  h4 {
+    color: $font-secondary;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  p {
+    color: $font-primary;
+  }
+}
