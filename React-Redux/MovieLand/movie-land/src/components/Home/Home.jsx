@@ -1,46 +1,40 @@
 import React, { useEffect } from "react";
 import "./Home.scss";
-import banner from "../../common/assests/banner.png";
+import banner from "../../common/assests/banner.webp";
 import MovieListing from "../MovieListing/MovieListing";
-import movieApi from "../../common/apis/moviesApis";
-import { API_URL, API_KEY, API_KEY_VALUE } from "../../common/apis/MovieApiKey";
 import { useDispatch } from "react-redux";
-import { addMovies } from "../../features/movies/movieSlice";
+import MovieSearch from "../movieSearch/MovieSearch";
+import { Link } from "react-router-dom";
+import { fetchMovies, fetchWebSeries } from "../../features/movies/movieSlice";
+import WebSeries from "../WebSeries/WebSeries";
 
 const Home = () => {
-  const searchValue = "Harry";
   const dispatch = useDispatch();
 
-  const fetchMovies = async () => {
-    const response = await movieApi
-      .get(`${API_URL}?${API_KEY}${API_KEY_VALUE}&s=${searchValue}`)
-      .catch((error) => {
-        document.write("An error occured try after sometime");
-        document.close();
-      });
-    dispatch(addMovies(response?.data));
+  useEffect(() => {
+    dispatch(fetchMovies());
+    dispatch(fetchWebSeries());
+  }, [dispatch]);
+
+  const searchHome = {
+    position: "absolute",
+    top: "30%",
+    left: "34%",
+    transform: 'translate("-50%", "-50%")',
   };
 
-  useEffect(() => {
-    fetchMovies();
-  }, []);
-
   return (
-    <div className="banner-img">
-      <img src={banner} alt="banner-image" />
-      <div>
-        <span>
-          Unlimited movies
-          <br /> Search any movies...
-        </span>
-      </div>
-
-      <div className="searchBar">
-        <input type="text" placeholder="Movie name" />
-        <button>Search</button>
+    <>
+      <div className="banner-img">
+        <img src={banner} alt="banner-image" />
+        <Link to="/movies/openAI/askanything" className="ask_GPT">
+          Ask Suggestions to GPT
+        </Link>
+        <MovieSearch search={fetchMovies} styleSearch={searchHome} />
       </div>
       <MovieListing />
-    </div>
+      <WebSeries/>
+    </>
   );
 };
 

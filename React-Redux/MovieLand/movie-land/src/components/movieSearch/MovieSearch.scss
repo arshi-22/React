@@ -1,0 +1,40 @@
+@import "../../common/color.scss";
+.searchBox {
+  display: flex;
+  span {
+    color: $font-primary;
+    font-weight: 800;
+    font-size: xx-large;
+    font-family: monospace;
+    color: #f5f5f5;
+  }
+}
+.search {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  input {
+    background-color: transparent;
+    border: 3px solid $font-primary;
+    width: auto;
+    border-radius: 10px;
+    outline: none;
+    color: $primary-color;
+    padding: 0.6rem 10rem;
+    font-size: large;
+  }
+  ::placeholder {
+    color: $font-primary;
+  }
+  .searchButton {
+    padding: 5px 20px;
+    border: 3px solid $font-primary;
+    color: $font-primary;
+    border-radius: 5px;
+    background-color: transparent;
+    &:hover {
+      background-color: $primary-color;
+      border: 3px solid $primary-color;
+    }
+  }
+}

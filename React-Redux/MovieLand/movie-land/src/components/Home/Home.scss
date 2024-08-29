@@ -2,44 +2,29 @@
 .banner-img {
   img {
     opacity: 0.6;
+    transition: all 500ms;
     width: 100%;
-  }
-  img:hover {
-    opacity: 0.8;
-  }
-  span {
-    color: $font-primary;
-    font-weight: 400;
-    font-size: xx-large;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 30rem;
+    object-fit: cover;
+    &:hover {
+      opacity: 0.8;
+      transition: all 500ms;
+    }
   }
 }
-.searchBar {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
+.ask_GPT {
   position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  input {
-    background-color: transparent;
-    border: 1px solid #b1a9a9;
-    width: auto;
-    border-radius: 3px;
-    height: 47px;
-  }
-  ::placeholder {
-    color: $font-primary;
-  }
-  button {
-    border: 1px solid #b1a9a9;
-    border-radius: 5px;
-    width: auto;
-    background-color: cornflowerblue;
-    color: $font-primary;
+  top: 40%;
+  left: 80%;
+  border: 3px solid $font-primary;
+  color: $font-primary;
+  font-size: medium;
+  border-radius: 10px;
+  padding: 5px 10px;
+
+  &:hover {
+    background-color: $primary-color;
+    // color: $secondary-color;
+    border: 3px solid $primary-color;
   }
 }

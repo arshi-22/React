@@ -8,9 +8,9 @@ const Header = () => {
       <Link to="/">
         <div className="logo">Movie Land</div>
       </Link>
-      <div className="user">
+      {/* <div className="user">
         <img src="" alt="username" />
-      </div>
+      </div> */}
     </div>
   );
 };
