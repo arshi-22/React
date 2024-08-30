@@ -2,15 +2,18 @@
 
 .card-item {
   cursor: pointer;
+  padding: 4rem 3rem;
 }
 .card-inner {
+  width: 300px;
+  height: 500px;
   border-radius: 1rem;
   transition: all 0.3s;
   &:focus,
   &:hover {
     border-radius: 1rem;
     transition: all 0.3s;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 }
 .card-top {
@@ -26,6 +29,9 @@
   h4 {
     color: $secondary-color;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   p {
     color: $font-secondary;

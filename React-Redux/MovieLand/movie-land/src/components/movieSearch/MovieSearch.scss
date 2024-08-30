@@ -1,6 +1,7 @@
 @import "../../common/color.scss";
 .searchBox {
   display: flex;
+  margin-bottom: 3rem;
   span {
     color: $font-primary;
     font-weight: 800;
@@ -14,7 +15,7 @@
   flex-direction: row;
   gap: 0.5rem;
   input {
-    background-color: transparent;
+    background-color: $primary-color;
     border: 3px solid $font-primary;
     width: auto;
     border-radius: 10px;
@@ -22,6 +23,7 @@
     color: $primary-color;
     padding: 0.6rem 10rem;
     font-size: large;
+    color: $font-primary;
   }
   ::placeholder {
     color: $font-primary;
@@ -30,11 +32,11 @@
     padding: 5px 20px;
     border: 3px solid $font-primary;
     color: $font-primary;
-    border-radius: 5px;
-    background-color: transparent;
+    border-radius: 10px;
+    background-color: $primary-color;
+    cursor: pointer;
     &:hover {
-      background-color: $primary-color;
-      border: 3px solid $primary-color;
+      color: $secondary-color;
     }
   }
 }

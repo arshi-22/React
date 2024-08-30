@@ -6,10 +6,16 @@
   box-sizing: border-box;
   font-family: "Roboto Condensed", sans-serif;
 }
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 body {
-  background:#2C3E50;
+  background: #26223f;
+  display: flex;
+  height: 100vh;
 }
 a {
   text-decoration: none;
 }
-

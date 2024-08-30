@@ -1,0 +1,16 @@
+.chatbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  margin: auto;
+  position: fixed;
+  height: 60vh;
+  bottom: 10px;
+  right: 20px;
+  background-color: #fff;
+  i{
+    padding: 10px;
+    cursor: pointer;
+  }
+}

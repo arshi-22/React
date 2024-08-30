@@ -8,10 +8,6 @@ export const fetchMovies = createAsyncThunk(
     const response = await moviesApis.get(
       `${API_URL}?${API_KEY}${API_KEY_VALUE}&s=${searchValue}&type=movie`
     );
-    // .catch((error) => {
-    //   document.write("An error occured try after sometime");
-    //   document.close();
-    // });
     return response?.data;
   }
 );
@@ -26,17 +22,28 @@ export const fetchWebSeries = createAsyncThunk(
   }
 );
 
+export const fetchMovieDetailsOrShows = createAsyncThunk(
+  "movies/details",
+  async (id) => {
+    const response = await moviesApis.get(
+      `${API_URL}?${API_KEY}${API_KEY_VALUE}&i=${id}&Plot=full`
+    );
+    return response?.data;
+  }
+);
+
 const initialState = {
   movies: {},
   shows: {},
+  movieOrShowDetails: {},
 };
 
 const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovies: (state, { payload }) => {
-      state.movies = payload;
+    removeSelectedMovieOrShow: (state) => {
+      state.movieOrShowDetails = {};
     },
   },
   extraReducers: (builder) => {
@@ -46,19 +53,17 @@ const movieSlice = createSlice({
     builder.addCase(fetchWebSeries.fulfilled, (state, { payload }) => {
       state.shows = payload;
     });
-    // [fetchMovies.pending]: () => {
-    //   console.log("Pending");
-    // },
-    // [fetchMovies.fulfilled]: (state, { payload }) => {
-    //   return { ...state, movies: payload };
-    // },
-    // [fetchMovies.rejected]: () => {
-    //   console.log("Rejceted");
-    // },
+    builder.addCase(
+      fetchMovieDetailsOrShows.fulfilled,
+      (state, { payload }) => {
+        state.movieOrShowDetails = payload;
+      }
+    );
   },
 });
 
-export const { addMovies } = movieSlice.actions;
+export const { removeSelectedMovieOrShow } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
+export const getMovieOrShowDetails = (state) => state.movies.movieOrShowDetails;
 export default movieSlice.reducer;
