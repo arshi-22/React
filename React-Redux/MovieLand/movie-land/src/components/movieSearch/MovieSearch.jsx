@@ -1,24 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchMovies,
+  fetchWebSeries,
+  getSearchKey,
+  updateSearchKey,
+} from "../../features/movies/movieSlice";
 import "./MovieSearch.scss";
 
-const MovieSearch = ({ search }) => {
-  const [input, setInput] = useState("");
-  const [response, setResponse] = useState("");
+const MovieSearch = () => {
+  const dispatch = useDispatch();
+  const searchKey = useSelector(getSearchKey);
 
   const handleInputChange = (event) => {
-    setInput(event.target.value);
-    
+    dispatch(updateSearchKey(event.target.value));
+  };
+
+  const searchMoviesOrShows = () => {
+    dispatch(fetchMovies());
+    dispatch(fetchWebSeries());
   };
 
   return (
     <div className={"searchBox"}>
       <div className="search">
         <input
+          value={searchKey}
           type="text"
           placeholder="Type here..."
           onChange={handleInputChange}
         />
-        <button className="searchButton">Search</button>
+        <button className="searchButton" onClick={searchMoviesOrShows}>
+          Search
+        </button>
       </div>
     </div>
   );

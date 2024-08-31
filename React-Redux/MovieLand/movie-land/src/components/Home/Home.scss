@@ -11,6 +11,7 @@
   background-size: cover;
   opacity: 0.7;
   transition: all 500ms;
+  background-position: center center;
   &:hover {
     opacity: 0.8;
     transition: all 500ms;
@@ -28,5 +29,45 @@
   cursor: pointer;
   &:hover {
     color: $secondary-color;
+  }
+}
+
+@media (max-width: 1200px) {
+  .banner-img {
+    min-height: 40vh;
+  }
+}
+
+@media (max-width: 750px) {
+  .banner-img {
+    min-height: 30vh;
+  }
+}
+@media (max-width: 480px) {
+  .banner-img {
+    min-height: 30vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ask_GPT {
+    font-size: 14px;
+  }
+}
+@media (max-width: 700px) {
+  .ask_GPT {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 500px) {
+  .ask_GPT {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .ask_GPT {
+    font-size: 10px;
   }
 }

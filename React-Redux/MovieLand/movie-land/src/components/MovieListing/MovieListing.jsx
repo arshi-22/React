@@ -4,14 +4,7 @@ import { useSelector } from "react-redux";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieListing.scss";
 import Slider from "react-slick";
-
-const settings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 6,
-  slidesToScroll: 1,
-};
+import { Settings } from "../../common/settings";
 
 const MovieListing = ({ type = "movie" }) => {
   const moviesOrShows = useSelector((state) =>
@@ -23,7 +16,7 @@ const MovieListing = ({ type = "movie" }) => {
       <div className="fa fa-refresh fa-2x loader"></div>
     ) : moviesOrShows?.Response ? (
       <div className="movie-container">
-        <Slider {...settings}>
+        <Slider {...Settings}>
           {moviesOrShows.Search.map((movie, index) => (
             <MovieCard key={index} data={movie} />
           ))}
@@ -38,7 +31,7 @@ const MovieListing = ({ type = "movie" }) => {
   return (
     <div className="movie-wrapper">
       <div className="movie-list">
-        <h2>Popular {type}s</h2>
+        <h2> {type}s</h2>
         {displayMoviesOrShows}
       </div>
     </div>

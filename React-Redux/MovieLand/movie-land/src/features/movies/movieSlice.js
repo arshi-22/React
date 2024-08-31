@@ -2,11 +2,22 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { API_KEY, API_KEY_VALUE, API_URL } from "../../common/apis/MovieApiKey";
 import moviesApis from "../../common/apis/moviesApis";
 
+const initialState = {
+  movies: {},
+  shows: {},
+  movieOrShowDetails: {},
+  searchValue: "",
+};
+
 export const fetchMovies = createAsyncThunk(
   "movies/fetchMovies",
-  async (searchValue = "Harry") => {
+  async (data, { getState }) => {
+    const state = getState();
+    const searchKey = state.movies.searchValue
+      ? state.movies.searchValue
+      : "Harry";
     const response = await moviesApis.get(
-      `${API_URL}?${API_KEY}${API_KEY_VALUE}&s=${searchValue}&type=movie`
+      `${API_URL}?${API_KEY}${API_KEY_VALUE}&s=${searchKey}&type=movie`
     );
     return response?.data;
   }
@@ -14,9 +25,13 @@ export const fetchMovies = createAsyncThunk(
 
 export const fetchWebSeries = createAsyncThunk(
   "movies/fetchshows",
-  async (searchValue = "Friends") => {
+  async (data, { getState }) => {
+    const state = getState();
+    const searchKey = state.movies.searchValue
+      ? state.movies.searchValue
+      : "Friends";
     const response = await moviesApis.get(
-      `${API_URL}?${API_KEY}${API_KEY_VALUE}&s=${searchValue}&type=series`
+      `${API_URL}?${API_KEY}${API_KEY_VALUE}&s=${searchKey}&type=series`
     );
     return response?.data;
   }
@@ -32,18 +47,15 @@ export const fetchMovieDetailsOrShows = createAsyncThunk(
   }
 );
 
-const initialState = {
-  movies: {},
-  shows: {},
-  movieOrShowDetails: {},
-};
-
 const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
     removeSelectedMovieOrShow: (state) => {
       state.movieOrShowDetails = {};
+    },
+    updateSearchKey: (state, { payload }) => {
+      state.searchValue = payload;
     },
   },
   extraReducers: (builder) => {
@@ -62,8 +74,10 @@ const movieSlice = createSlice({
   },
 });
 
-export const { removeSelectedMovieOrShow } = movieSlice.actions;
+export const { removeSelectedMovieOrShow, updateSearchKey } =
+  movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
+export const getSearchKey = (state) => state.movies.searchValue;
 export const getMovieOrShowDetails = (state) => state.movies.movieOrShowDetails;
 export default movieSlice.reducer;

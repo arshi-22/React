@@ -14,7 +14,6 @@ const MovieDetails = () => {
   const details = useSelector(getMovieOrShowDetails);
 
   useEffect(() => {
-    console.log(details);
     dispatch(fetchMovieDetailsOrShows(imdbID));
     return () => {
       dispatch(removeSelectedMovieOrShow());
@@ -27,8 +26,7 @@ const MovieDetails = () => {
       {Object.keys(details).length === 0 ? (
         <div className="fa fa-refresh fa-3x loader"></div>
       ) : (
-        <>
-          <div className="detail">
+        <div className="detail">
             <div className="section-left">
               <h2>{details.Title}</h2>
               <div className="rating">
@@ -72,7 +70,6 @@ const MovieDetails = () => {
               <img src={details.Poster} alt="poster" className="poster" />
             </div>
           </div>
-        </>
       )}
     </div>
   );
