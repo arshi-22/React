@@ -2,6 +2,9 @@
 
 .details {
   margin: 5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .fa-arrow-left {
   border: 2px solid $font-primary;
