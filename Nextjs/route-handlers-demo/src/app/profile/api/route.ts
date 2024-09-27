@@ -1,3 +1,5 @@
+import { USERDATA } from "@/app/db/data";
+
 export async function GET() {
-  return new Response("Users data");
+  return Response.json(USERDATA);
 }
