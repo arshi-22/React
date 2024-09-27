@@ -1,5 +1,4 @@
 import { USERDATA } from "@/app/db/data";
-import { headers } from "next/headers";
 
 export async function GET() {
   return Response.json(USERDATA);
