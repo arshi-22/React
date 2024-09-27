@@ -1,7 +1,13 @@
 import { USERDATA } from "@/app/db/data";
+import { NextRequest } from "next/server";
 
-export async function GET() {
-  return Response.json(USERDATA);
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  const query = searchParams.get("query");
+  const filteredData = query
+    ? USERDATA.filter((user) => user.name.includes(query))
+    : USERDATA;
+  return Response.json(filteredData);
 }
 
 export async function POST(request: Request) {
@@ -15,6 +21,6 @@ export async function POST(request: Request) {
     headers: {
       "Content-Type": "application/json",
     },
-    status: 201,
+    status: 20,
   });
 }
