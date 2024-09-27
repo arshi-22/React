@@ -7,6 +7,7 @@ export default function Home() {
       <div style={{ display: "flex", flexDirection: "row", gap: 10 }}>
         <Link href="/blog">Blogs</Link>
         <Link href="/products">Products</Link>
+        <Link href="/order-product">Order Product</Link>
       </div>
     </div>
   );

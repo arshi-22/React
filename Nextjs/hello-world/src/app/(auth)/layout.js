@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "./styles.css";
+import { useState } from "react";
+
 const navLinks = [
   { name: "Register", href: "/register" },
   { name: "Login", href: "/login" },
@@ -11,6 +13,7 @@ const navLinks = [
 
 export default function AuthLayout({ children }) {
   const pathname = usePathname();
+  const [input, setInput] = useState("");
 
   return (
     <div>
@@ -20,12 +23,21 @@ export default function AuthLayout({ children }) {
           <Link
             href={link.href}
             key={link.name}
-            className={isActive ? "font-bold mr-4 text-red-600" : "text-blue-500 mr-4"}
+            className={
+              isActive ? "font-bold mr-4 text-red-600" : "text-blue-500 mr-4"
+            }
           >
             {link.name}
           </Link>
         );
       })}
+      <div>
+        <input
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+        />
+      </div>
+
       {children}
     </div>
   );

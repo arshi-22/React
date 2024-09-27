@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <header
-          style={{ backgroundColor: "pink", margin: "5px", padding: "10px" }}
+          style={{ backgroundColor: "pink", padding: "10px" }}
         >
           <p>Header</p>
         </header>
