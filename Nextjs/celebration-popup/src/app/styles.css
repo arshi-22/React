@@ -6,7 +6,6 @@
   bottom: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   z-index: 50;
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,12 +18,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 1rem;
-  align-items: center;
-  
 }
-.button{
-    background: linear-gradient(
+.button {
+  background: linear-gradient(
     180deg,
     #ffffff 0%,
     #f7c891 8.5%,
@@ -42,7 +38,24 @@
   line-height: 10px;
   text-align: center;
   box-shadow: -2px 2px 0px rgba(0, 0, 0, 0.5), 2px 0px 0px rgba(0, 0, 0, 0.5);
+  cursor: not-allowed;
+  animation: bounce 1s infinite;
+  transition: all 200ms;
+}
+@keyframes bounce {
+
+  0%, 100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0.8; /* Invisible */
+  }
 }
 .button:hover{
-   scale: 1.03;
+  transform: scale(1.05);
+  transition: all 200ms;
+}
+
+.reward-button {
+  cursor: pointer;
 }

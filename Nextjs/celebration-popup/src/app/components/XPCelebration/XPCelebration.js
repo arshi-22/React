@@ -4,12 +4,17 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import "./XPCelebration.css";
 import level_up from "../../../../public/level_up.svg";
+import { shoot } from "../utils";
 
-export default function XPCelebration() {
+export default function XPCelebration({ closeAllModals }) {
   const [xpPercent, setXpPercent] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => setXpPercent(69), 500);
+    setTimeout(() => closeAllModals(false), 5000);
+    setTimeout(() => {
+      setXpPercent(69);
+    }, 1000);
+    setTimeout(shoot, 1100);
   }, []);
 
   return (
@@ -18,16 +23,29 @@ export default function XPCelebration() {
         <h1 className="level-up">LEVEL UP</h1>
         <div className="badge-wrapper">
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.5 }}
+            initial={{ scale: 5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <Image src={level_up} alt="Badge" className="badge" />
+          </motion.div>
+          <motion.div
+            initial={{ scale: 1, opacity: 0 }}
+            animate={{ scale: [0.5, 1], opacity: 1 }}
+            transition={{
+              duration: 1,
+              times: [0, 0.5, 1],
+              delay: 1,
+              ease: "easeInOut",
+            }}
           >
             <Image src={level_up} alt="Badge" className="badge" />
           </motion.div>
         </div>
         <h2 className="corporal">Corporal</h2>
+        <div className="xpBar-wrap">
         <div className="xpBar-range">
-          XP: <span className="xp-value"> 34,500</span>
+          <span className="xp-value"> 34,500</span>
           <span>50,000</span>
         </div>
         <div className="xp-bar">
@@ -38,6 +56,8 @@ export default function XPCelebration() {
             transition={{ duration: 2 }}
           />
         </div>
+        </div>
+        
         <motion.button className="claim-button" whileTap={{ scale: 0.95 }}>
           Claim NFT Badge
         </motion.button>
