@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import "./XPCelebration.css";
-import level_up from "../../../public/level_up.svg";
+import level_up from "../../../../public/level_up.svg";
 
 export default function XPCelebration() {
   const [xpPercent, setXpPercent] = useState(0);
