@@ -44,36 +44,36 @@ export default function XPCelebration({ closeAllModals }) {
         </div>
         <h2 className="corporal">Corporal</h2>
         <div className="xpBar-wrap">
-        <div className="xpBar-range">
-          <span className="xp-value"> 34,500</span>
-          <span>50,000</span>
+          <div className="xpBar-range">
+            <span className="xp-value"> 34,500</span>
+            <span>50,000</span>
+          </div>
+          <div className="xp-bar">
+            <motion.div
+              className="xp-fill"
+              initial={{ width: "0%" }}
+              animate={{ width: `${xpPercent}%` }}
+              transition={{ duration: 2 }}
+            />
+          </div>
         </div>
-        <div className="xp-bar">
-          <motion.div
-            className="xp-fill"
-            initial={{ width: "0%" }}
-            animate={{ width: `${xpPercent}%` }}
-            transition={{ duration: 2 }}
-          />
-        </div>
-        </div>
-        
+
         <motion.button className="claim-button" whileTap={{ scale: 0.95 }}>
           Claim NFT Badge
         </motion.button>
         <p className="popup-text leveled-up">
-          You've leveled up and earned a new badge!
+          {"You've leveled up and earned a new badge!"}
         </p>
         <p className="claim-badge">
           Claim your <span className="NFT-badge">NFT badge</span> now, or
           retrieve it later from your Inventory.
         </p>
         <p className="popup-text small-text">
-          To claim your new badge, you'll need to transfer your previous badge
+          {`To claim your new badge, you'll need to transfer your previous badge
           from your wallet for it to be burned in exchange for the new one. If
           there's insufficient gas in your wallet, the transaction will be
           canceled. You can always visit your Inventory and claim your badge at
-          any time.
+          any time.`}
         </p>
       </div>
     </div>
