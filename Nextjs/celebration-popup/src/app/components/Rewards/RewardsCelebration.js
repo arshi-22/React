@@ -8,13 +8,12 @@ import XPCelebration from "../XPCelebration/XPCelebration";
 import { frame } from "../utils";
 import { REWARDS } from "@/app/constants";
 
-
-export default function RewardsCelebration({ rewards, setShowPopup }) {
+export default function RewardsCelebration({ setShowPopup }) {
   const [openModal, setOpenModal] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     frame();
-  })
+  }, []);
 
   const handelClose = () => {
     setShowPopup(false);
@@ -59,7 +58,7 @@ export default function RewardsCelebration({ rewards, setShowPopup }) {
           </div>
           <div className="rewards">
             {REWARDS.map((reward, index) => (
-              <div key={index} className="reward">
+              <div key={reward.id} className="reward">
                 <img src={reward.icon} alt={reward.name} />
                 <p>{reward.amount}</p>
               </div>
